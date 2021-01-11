@@ -37,11 +37,11 @@ function Get-CryptomathicReport {
     )
     
     begin {
-        
     }
     
     process {
-        $containerId = docker run -it -d jakob4
+        Write-Host $InstallItem.Name
+        $containerId = docker run -it -d $ENV:IMAGETAGCKMS
 
         $exeFile = $InstallItem.Name
         $fileName = ".\$exeFile.txt"
@@ -61,9 +61,8 @@ function Get-CryptomathicReport {
     }
     
     end {
-        
     }
 }
 
-$args[0] | Get-CryptomathicMsi | ForEach-Object { Get-CryptomathicReport -InstallItem $_ -Thumbprint "bbc51542eba868c49c5458e9eef556d0d54c2463" }
-#"C:\Users\jbj\Desktop\1.20.0 RC1\CKMS-1.20\Installation" | Get-CryptomathicMsi | ForEach-Object { Get-CryptomathicReport -InstallItem $_ -Thumbprint "bbc51542eba868c49c5458e9eef556d0d54c2463" }
+#$args[0] | Get-CryptomathicMsi | ForEach-Object { Get-CryptomathicReport -InstallItem $_ -Thumbprint "bbc51542eba868c49c5458e9eef556d0d54c2463" }
+"C:\docker\ckms\1.20.0 RC1\Addons\Listeners" | Get-CryptomathicMsi | ForEach-Object { Get-CryptomathicReport -InstallItem $_ -Thumbprint "bbc51542eba868c49c5458e9eef556d0d54c2463" }
