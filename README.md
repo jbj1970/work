@@ -7,6 +7,9 @@ The goal is to be able to run a PowerShell script or command calling one or more
 ```
 which will traverse and look for all installer files in `<file path>` and for each one install it in a docker image. Then to generate a report with all relevant information about the relevant files installed.
 
+## Motivation
+During a release phase manually inspecting installed files of a release is very time consuming and very prone to human errors. It would be nice to automate this inspection using a docker container.
+
 ## Prerequisites
 The prerequisites are:
 - Windows OS version compatible with docker image mcr.microsoft.com/windows/servercore:1909 (e.g. Windows OS Build 18363.1256)
